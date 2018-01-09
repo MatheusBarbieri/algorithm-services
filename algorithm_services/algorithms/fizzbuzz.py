@@ -1,6 +1,3 @@
-# import sys
-
-
 def fizzbuzz(input_number):
     output = []
     for number in range(1, input_number+1):

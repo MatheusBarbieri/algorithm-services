@@ -7,4 +7,4 @@ install:
   - make setup
 
 script:
-  - make tests
+  - make test
