@@ -1,1 +1,1 @@
-print(algorithm-services)
+print('algorithm-services')

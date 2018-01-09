@@ -7,4 +7,5 @@ install:
   - make setup
 
 script:
+  - make lint
   - make test

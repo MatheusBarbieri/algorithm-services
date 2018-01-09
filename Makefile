@@ -5,6 +5,9 @@ setup:
 run:
 	echo "application running"
 
+lint:
+	flake8
+
 test:
 	echo "test application"
 	nosetests -v
