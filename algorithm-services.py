@@ -8,6 +8,7 @@ app = Flask(__name__)
 def index():
     return 'Home'
 
+
 @app.route('/algorithm/<algorithm>')
 def run_algorithm(algorithm):
     return str(algorithm)
