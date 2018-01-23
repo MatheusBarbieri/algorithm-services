@@ -19,6 +19,7 @@ After installation, run the application by calling ```make run``` on the project
 | Algorithm | Short Description | Input | Output |
 | ----------|:------------|:-----:| :-------:|
 | Fizzbuzz  | This algorithm takes an input integer and outputs a list in that range in which every element divisible by 3 is substituted by the word **Fizz**, every element divisable by 5 is substituted by the word **buzz** and elements divisble by both numbers are substituted by **Fizzbuzz**.| Any integer | List of objects(numbers and strings)|
+| Clock Angle | Clock Angle calculates the smaller angle between the hands (hour and minutes) on a given time | Integers: hours; minutes; seconds (optional) | Float: Angle |
 
 ### Tests
 Tests can be run by calling ```make test``` in the root director.
