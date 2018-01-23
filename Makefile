@@ -4,8 +4,8 @@ setup:
 
 run:
 	echo "application running"
-	FLASK_APP=algorithm-services.py flask run
-
+	python algorithm-services.py
+	
 lint:
 	flake8
 
