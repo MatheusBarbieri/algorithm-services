@@ -9,29 +9,27 @@ from flask import Flask
 class AppTestCase(unittest.TestCase):
 
     def setUp(self):
-        _app = create_app(__name__, config)
-        self.app = _app.test_client()
-        self.app.testing = True
+        self.app = create_app(__name__, config)
 
     def test_create_app(self):
-        self.assertTrue(isinstance(self.app.application, Flask))
+        self.assertTrue(isinstance(self.app, Flask))
 
     def test_create_app_config(self):
         self.assertEqual(
-            self.app.application.config['DEBUG'],
+            self.app.config['DEBUG'],
             True
         )
         self.assertEqual(
-            self.app.application.config['TEMPLATES_AUTO_RELOAD'],
+            self.app.config['TEMPLATES_AUTO_RELOAD'],
             True
         )
         self.assertEqual(
-            self.app.application.config['EXPLAIN_TEMPLATE_LOADING'],
+            self.app.config['EXPLAIN_TEMPLATE_LOADING'],
             True
         )
 
     def test_crete_app_routes(self):
-        self.assertLess(
-            2,
-            len(list(self.app.application.url_map.iter_rules()))
+        self.assertEquals(
+            3,
+            len(list(self.app.url_map.iter_rules()))
         )
