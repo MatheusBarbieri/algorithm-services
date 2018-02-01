@@ -1,6 +1,5 @@
 import unittest
 
-from algorithm_services.config import config
 from algorithm_services.app import create_app
 
 from flask import Flask
@@ -9,7 +8,15 @@ from flask import Flask
 class AppTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.app = create_app(__name__, config)
+        # Configuration test data
+        self.config = {
+            "DEBUG": True,
+            "TEMPLATES_AUTO_RELOAD": True,
+            "EXPLAIN_TEMPLATE_LOADING": True,
+            "TEMPLATE_FOLDER": "./algorithm_services/templates"
+        }
+
+        self.app = create_app(__name__, self.config)
 
     def test_create_app(self):
         self.assertTrue(isinstance(self.app, Flask))
@@ -17,15 +24,15 @@ class AppTestCase(unittest.TestCase):
     def test_create_app_config(self):
         self.assertEqual(
             self.app.config['DEBUG'],
-            True
+            self.config['DEBUG']
         )
         self.assertEqual(
             self.app.config['TEMPLATES_AUTO_RELOAD'],
-            True
+            self.config['TEMPLATES_AUTO_RELOAD']
         )
         self.assertEqual(
             self.app.config['EXPLAIN_TEMPLATE_LOADING'],
-            True
+            self.config['EXPLAIN_TEMPLATE_LOADING']
         )
 
     def test_crete_app_routes(self):
