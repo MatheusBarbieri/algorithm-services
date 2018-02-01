@@ -19,14 +19,15 @@ def get_index_data(readme_data):
         re.DOTALL
     )
     if found:
-        index_data = found.group(1)
-    return index_data
+        return found.group(1)
+    else:
+        return ''
 
 
 def create_app(name, config):
     template_folder = os.path.abspath(config['TEMPLATE_FOLDER'])
     app = Flask(name, template_folder=template_folder)
-    app.config.update(config['FLASK_CONFIG'])
+    app.config.update(config)
 
     @app.route('/')
     def index():
