@@ -1,12 +1,13 @@
 import unittest
 
 from algorithm_services.app import create_app
+from algorithm_services.config import config
 
 
 class ClockAngleRouteTestCase(unittest.TestCase):
 
     def setUp(self):
-        _app = create_app(__name__, {})
+        _app = create_app(__name__, config)
         self.app = _app.test_client()
 
     def test_clock_angle(self):
