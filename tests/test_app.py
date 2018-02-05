@@ -37,6 +37,6 @@ class AppTestCase(unittest.TestCase):
 
     def test_crete_app_routes(self):
         self.assertEquals(
-            5,
+            3,
             len(list(self.app.url_map.iter_rules()))
         )
