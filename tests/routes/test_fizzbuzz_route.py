@@ -1,14 +1,8 @@
-import unittest
+from tests.routes import RouteTestCase
+from tests.routes import RouteResponseTestCase
+from tests.routes import RouteArgumentValidationTestCase
 
-from algorithm_services.app import create_app
-from algorithm_services.config import config
-
-
-class FizzBuzzRouteTestCase(unittest.TestCase):
-
-    def setUp(self):
-        _app = create_app(__name__, config)
-        self.app = _app.test_client()
+class FizzbuzzRouteTestCase(RouteTestCase, RouteResponseTestCase, RouteArgumentValidationTestCase): # noqa
 
     def test_fizzbuzz(self):
         result = self.app.get('/fizzbuzz/15')
@@ -20,16 +14,8 @@ class FizzBuzzRouteTestCase(unittest.TestCase):
 
     def test_fizzbuzz_response(self):
         result = self.app.get('fizzbuzz/1')
-
-        self.assertEqual('application/json', result.content_type)
-        self.assertEqual('200 OK', result.status)
+        self.algorithm_json_response(result)
 
     def test_fizzbuzz_argument_validation(self):
         result = self.app.get('fizzbuzz/five')
-
-        self.assertEqual('404 NOT FOUND', result.status)
-        self.assertEqual('text/html', result.content_type)
-        self.assertTrue(
-            b'The requested URL was not found on the server.'
-            in result.data
-        )
+        self.algorithm_argument_validation(result)
