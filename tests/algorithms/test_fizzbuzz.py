@@ -1,13 +1,13 @@
 import unittest
 
-from algorithm_services.algorithms.algorithm_factory import AlgorithmFactory
+from algorithm_services.algorithms.fizzbuzz import Fizzbuzz
 
 
 class FizzBuzzTestCase(unittest.TestCase):
 
     def setUp(self):
 
-        self.result = AlgorithmFactory.create_algorithm('fizzbuzz', [15]).run()
+        self.result = Fizzbuzz([15]).run()
 
     def test_fizz(self):
         self.assertEqual(self.result[2], 'Fizz')
