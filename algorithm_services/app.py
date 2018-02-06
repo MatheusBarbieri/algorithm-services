@@ -24,8 +24,7 @@ def get_index_data(readme_data):
 
 
 def create_app(name, config):
-    template_folder = os.path.abspath(config['TEMPLATE_FOLDER'])
-    app = Flask(name, template_folder=template_folder)
+    app = Flask(name, template_folder=config['TEMPLATE_FOLDER'])
     app.config.update(config)
 
     @app.route('/')
