@@ -12,9 +12,7 @@ class FizzbuzzRouteTestCase(RouteTestCase):
         )
 
     def test_fizzbuzz_response(self):
-        result = self.app.get('fizzbuzz/1')
-        self.algorithm_json_response(result)
+        self.algorithm_json_response(self.app, 'fizzbuzz/1')
 
     def test_fizzbuzz_argument_validation(self):
-        result = self.app.get('fizzbuzz/five')
-        self.algorithm_argument_validation(result)
+        self.algorithm_argument_validation(self.app, 'fizzbuzz/five')

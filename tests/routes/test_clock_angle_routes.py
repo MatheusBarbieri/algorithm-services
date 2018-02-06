@@ -18,9 +18,7 @@ class ClockAngleRouteTestCase(RouteTestCase):
         )
 
     def test_clock_angle_response(self):
-        result = self.app.get('clock_angle/0/0')
-        self.algorithm_json_response(result)
+        self.algorithm_json_response(self.app, 'clock_angle/0/0')
 
     def test_clock_angle_argument_validation(self):
-        result = self.app.get('clock_angle/15')
-        self.algorithm_argument_validation(result)
+        self.algorithm_argument_validation(self.app, 'clock_angle/15')
