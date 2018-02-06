@@ -1,15 +1,11 @@
-import unittest
-
-from algorithm_services.app import create_app
+from tests.routes import RouteTestCase
 from algorithm_services.app import get_index_data
-from algorithm_services.config import config
 
 
-class IndexRouteTestCase(unittest.TestCase):
+class IndexRouteTestCase(RouteTestCase):
 
     def setUp(self):
-        _app = create_app(__name__, config)
-        self.app = _app.test_client()
+        super(IndexRouteTestCase, self).setUp()
         self.index = self.app.get('/')
 
     def test_index_route(self):

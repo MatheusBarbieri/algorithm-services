@@ -1,12 +1,13 @@
 import unittest
 
-from algorithm_services.algorithms.fizzbuzz import fizzbuzz
+from algorithm_services.algorithms.fizzbuzz import Fizzbuzz
 
 
 class FizzBuzzTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.result = fizzbuzz(15)
+
+        self.result = Fizzbuzz([15]).run()
 
     def test_fizz(self):
         self.assertEqual(self.result[2], 'Fizz')

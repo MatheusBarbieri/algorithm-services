@@ -8,8 +8,7 @@ from flask import render_template
 from flask import Response
 from flask import Markup
 
-from algorithm_services.algorithms.fizzbuzz import fizzbuzz
-from algorithm_services.algorithms.clock_angle import clock_angle
+from algorithm_services.algorithms.algorithm_factory import AlgorithmFactory
 
 
 def get_index_data(readme_data):
@@ -25,8 +24,7 @@ def get_index_data(readme_data):
 
 
 def create_app(name, config):
-    template_folder = os.path.abspath(config['TEMPLATE_FOLDER'])
-    app = Flask(name, template_folder=template_folder)
+    app = Flask(name, template_folder=config['TEMPLATE_FOLDER'])
     app.config.update(config)
 
     @app.route('/')
@@ -44,19 +42,11 @@ def create_app(name, config):
 
         return render_template('index.html', **locals())
 
-    @app.route('/fizzbuzz/<int:number>')
-    def fizzbuzz_route(number):
-        result = json.dumps(fizzbuzz(number))
-        return Response(
-            response=result,
-            status=200,
-            mimetype='application/json'
-        )
-
-    @app.route('/clock_angle/<int:hours>/<int:minutes>')
-    @app.route('/clock_angle/<int:hours>/<int:minutes>/<int:seconds>')
-    def clock_angle_route(hours, minutes, seconds=0):
-        result = json.dumps(clock_angle(hours, minutes, seconds))
+    @app.route('/<string:algorithm_name>/<path:args>')
+    def algorithm_route(algorithm_name, args):
+        args = args.split('/')
+        algorithm = AlgorithmFactory.create_algorithm(algorithm_name, args)
+        result = json.dumps(algorithm.run())
         return Response(
             response=result,
             status=200,
