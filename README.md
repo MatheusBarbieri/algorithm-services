@@ -15,7 +15,7 @@ After installation, run the application by calling ```make run``` on the project
 - Example: `localhost:8888/fizzbuzz/100`
 
 
-### Avaliable algorithms
+### Available algorithms
 | Algorithm | Short Description | Input | Output |
 | ----------|:------------|:-----:| :-------:|
 | Fizzbuzz  | This algorithm takes an input integer and outputs a list in that range in which every element divisible by 3 is substituted by the word **Fizz**, every element divisable by 5 is substituted by the word **buzz** and elements divisble by both numbers are substituted by **Fizzbuzz**.| Any integer | List of objects(numbers and strings)|
