@@ -1,8 +1,7 @@
 from tests.routes import RouteTestCase
-from tests.routes import RouteResponseTestCase
-from tests.routes import RouteArgumentValidationTestCase
 
-class FizzbuzzRouteTestCase(RouteTestCase, RouteResponseTestCase, RouteArgumentValidationTestCase): # noqa
+
+class FizzbuzzRouteTestCase(RouteTestCase):
 
     def test_fizzbuzz(self):
         result = self.app.get('/fizzbuzz/15')

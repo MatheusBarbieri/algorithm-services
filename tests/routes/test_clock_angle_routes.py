@@ -1,9 +1,7 @@
 from tests.routes import RouteTestCase
-from tests.routes import RouteResponseTestCase
-from tests.routes import RouteArgumentValidationTestCase
 
 
-class ClockAngleRouteTestCase(RouteTestCase, RouteResponseTestCase, RouteArgumentValidationTestCase): # noqa
+class ClockAngleRouteTestCase(RouteTestCase):
 
     def test_clock_angle(self):
         result = self.app.get('/clock_angle/15/45')

@@ -10,15 +10,9 @@ class RouteTestCase(unittest.TestCase):
         _app = create_app(__name__, config)
         self.app = _app.test_client()
 
-
-class RouteResponseTestCase(unittest.TestCase):
-
     def algorithm_json_response(self, result):
         self.assertEqual('application/json', result.content_type)
         self.assertEqual('200 OK', result.status)
-
-
-class RouteArgumentValidationTestCase(unittest.TestCase):
 
     def algorithm_argument_validation(self, result):
         self.assertEqual('404 NOT FOUND', result.status)
