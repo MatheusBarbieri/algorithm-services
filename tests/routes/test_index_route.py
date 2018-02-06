@@ -23,3 +23,7 @@ class IndexRouteTestCase(unittest.TestCase):
     def test_get_index_data(self):
         test_string = '### Available algorithmsABCD### Tests'
         self.assertEqual(get_index_data(test_string), 'ABCD')
+
+    def test_get_index_data_not_found(self):
+        test_string = 'abcdefgh'
+        self.assertEqual(get_index_data(test_string), '')
