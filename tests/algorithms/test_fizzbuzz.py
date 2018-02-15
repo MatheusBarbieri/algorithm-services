@@ -7,7 +7,7 @@ class FizzBuzzTestCase(unittest.TestCase):
 
     def setUp(self):
 
-        self.result = Fizzbuzz([15]).run()
+        self.result = Fizzbuzz("fizzbuzz", [15]).run()
 
     def test_fizz(self):
         self.assertEqual(self.result[2], 'Fizz')
