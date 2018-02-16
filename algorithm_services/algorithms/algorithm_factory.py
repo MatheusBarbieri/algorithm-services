@@ -12,7 +12,7 @@ class AlgorithmFactory():
         attr = cls._name_to_class_name(name)
         Algorithm = getattr(module, attr)
 
-        return Algorithm(args)
+        return Algorithm(name, args)
 
     @classmethod
     def _name_to_class_name(cls, name):

@@ -3,7 +3,8 @@ from flask import abort
 
 class Algorithm():
 
-    def __init__(self, args):
+    def __init__(self, name, args):
+        self.name = name
         self.args = args
 
     def run(self):
