@@ -2,9 +2,9 @@ from flask import abort
 
 
 class Algorithm():
+    name = "undefined"
 
-    def __init__(self, name, args):
-        self.name = name
+    def __init__(self, args):
         self.args = args
 
     def run(self):
