@@ -2,6 +2,7 @@ from flask import abort
 
 
 class Algorithm():
+    name = "undefined"
 
     def __init__(self, args):
         self.args = args

@@ -2,6 +2,8 @@ from algorithm_services.algorithms import Algorithm
 
 
 class ClockAngle(Algorithm):
+    name = "clock_angle"
+
     hour_displacement_per_hour = 30
     hour_displacement_per_minute = 0.5
     hour_displacement_per_second = 0.5/60

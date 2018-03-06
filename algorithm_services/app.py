@@ -4,11 +4,12 @@ import re
 import os.path
 
 from flask import Flask
-from flask import render_template
 from flask import Response
+from flask import render_template
 from flask import Markup
 
 from algorithm_services.algorithms.algorithm_factory import AlgorithmFactory
+from algorithm_services.algorithms.algorithm_runner import AlgorithmRunner
 
 
 def get_index_data(readme_data):
@@ -26,6 +27,7 @@ def get_index_data(readme_data):
 def create_app(name, config):
     app = Flask(name, template_folder=config['TEMPLATE_FOLDER'])
     app.config.update(config)
+    app.algorithm_runner = AlgorithmRunner({})
 
     @app.route('/')
     def index():
@@ -46,9 +48,11 @@ def create_app(name, config):
     def algorithm_route(algorithm_name, args):
         args = args.split('/')
         algorithm = AlgorithmFactory.create_algorithm(algorithm_name, args)
-        result = json.dumps(algorithm.run())
+        result = app.algorithm_runner.execute(algorithm)
+
+        result_json = json.dumps(result)
         return Response(
-            response=result,
+            response=result_json,
             status=200,
             mimetype='application/json'
         )
