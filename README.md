@@ -27,7 +27,7 @@ Tests can be run by calling ```make test``` in the root director.
 ### Benchmark
 The results bellow were received with MacBook Pro 2011, CPU: 2.3 GHz i5, MEM 16GB, OSX 10.13.3 using WRK utility. Each test ran for 60 seconds.
 
-The following results were obtained on 2018-02-09, the application had no cache.
+The following results were obtained on 2018-02-09, the application had no cache:
 
 #### Fizzbuzz
 | Threads | Connections | 50%(ms)  | 75%(ms)  | 90%(ms)  | 99.99%(ms) | Avg(ms)  | Req/s | Timeouts | Date |
@@ -45,7 +45,7 @@ The following results were obtained on 2018-02-09, the application had no cache.
 | 1  | 50 | 176.68   | 204.00   | 429.11   | 1993.28   | 230.24   | 221.95 | 27       | 2018-02-09_16:06:24 |
 | 20 | 400 | 501.86 | 621.89   | 735.65   | 1287.45   | 529.36   | 208.15 | 235      | 2018-02-09_16:07:24 |
 
-The following results were obtained on 2018-02-15, the application had application level cache. 
+The following results were obtained on 2018-02-15, the application had application level cache:
 
 #### Fizzbuzz
 | Threads | Connections | 50%(ms)  | 75%(ms)  | 90%(ms)  | 99.99%(ms) | Avg(ms)  | Req/s | Timeouts | Date |
@@ -62,3 +62,22 @@ The following results were obtained on 2018-02-15, the application had applicati
 | 1       | 25          | 83.66 | 101.44 | 273.02 | 1857.92 | 135.58 | 237.06 | 0 | 2018-02-15_16:11:40 |
 | 1       | 50          | 179.15 | 205.07 | 464.49 | 1108.65 | 226.73 | 214.00 | 33 | 2018-02-15_16:12:40 |
 | 20      | 400         | 501.11 | 653.40 | 763.46 | 1985.94 | 554.31 | 220.39 | 38 | 2018-02-15_16:13:40 |
+
+The following results were obtained on 2018-03-16, the application had web-server level proxy (Nginx with 1024 workers):
+
+#### Fizzbuzz
+| Threads | Connections | 50%(ms)  | 75%(ms)  | 90%(ms)  | 99.99%(ms) | Avg(ms)  | Req/s | Timeouts | Date |
+| :---:   | :---:       | :-----:  | :-----:  | :------: | :-------:  | :------: | :---: | :------: | :--: |
+| 1 | 1 | 0.12 | 0.12 | 0.13 | 26.88 | 0.28 | 7523.15 | 0 | 2018-03-16_18:40:05 |
+| 1 | 25 | 2.79 | 3.01 | 3.54 | 38.44 | 3.38 | 8189.21 | 0 | 2018-03-16_18:41:05 |
+| 1 | 50 | 5.74 | 5.97 | 6.79 | 80.15 | 6.39 | 8240.62 | 0 | 2018-03-16_18:42:05 |
+| 20 | 400 | 28.12 | 28.83 | 30.79 | 604.41 | 30.47 | 8132.00 | 0 | 2018-03-16_18:43:05 |
+
+
+#### Clock Angle
+| Threads | Connections | 50%(ms)  | 75%(ms)  | 90%(ms)  | 99.99%(ms) | Avg(ms)  | Req/s | Timeouts | Date |
+| :---:   | :---:       | :-----:  | :-----:  | :------: | :-------:  | :------: | :---: | :------: | :--: |
+| 1 | 1 | 0.12 | 0.12 | 0.13 | 57.55 | 0.53 | 7331.00 | 0 | 2018-03-16_18:44:05 |
+| 1 | 25 | 2.89 | 3.13 | 3.68 | 239.07 | 3.96 | 7948.87 | 0 | 2018-03-16_18:45:05 |
+| 1 | 50 | 5.77 | 5.99 | 6.73 | 177.65 | 6.54 | 8167.07 | 0 | 2018-03-16_18:46:05 |
+| 20 | 400 | 28.16 | 28.79 | 31.03 | 621.76 | 30.55 | 8147.87 | 0 | 2018-03-16_18:47:05 |
